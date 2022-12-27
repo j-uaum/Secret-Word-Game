@@ -58,7 +58,7 @@ console.log(wordLetters)
 //fill states 
 setPickedWord = (word)
 setPickedCategory = (category)
-setLetters = (letter)
+setLetters = (wordLetters)
 
 // a ultima coisa a ser feita
     setGameStage(stages[1].name)
