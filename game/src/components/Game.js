@@ -18,7 +18,7 @@ const Game = ({verifyLetter}) => {
           <form>
             <input type="text" name='letter' maxLength='1' required/>
 
-          <button>Jogar</button>
+          <button onClick={verifyLetter}>Jogar</button>
           </form>
         </div>
         <div className="wrongLettersContainer">
