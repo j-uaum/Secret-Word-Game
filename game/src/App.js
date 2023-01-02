@@ -26,7 +26,7 @@ function App() {
   const [words] = useState(wordsList)
   const [pickedWord, setPickedWord] = useState('')
   const [pickedCategory, setPickedCategory] = useState('')
-  const [letter, setLetter] = useState([])
+  const [letters, setLetters] = useState([])
 
 
   // estados de letras advinhadas
@@ -52,7 +52,7 @@ let wordLetters = word.split('')
 wordLetters = wordLetters.map((l) => l.toLowerCase())
 setPickedWord(word)
 setPickedCategory(category)
-setLetter(wordLetters)
+setLetters(wordLetters)
 setGameStage(stages[1].name)
 }
 
@@ -67,7 +67,7 @@ setGameStage(stages[1].name)
   }
 
   //console debugg
-  console.log(letter)
+  console.log(letters)
   console.log()
   
   return (
@@ -78,7 +78,7 @@ setGameStage(stages[1].name)
         verifyLetter={verifyLetter} 
         pickedWord={pickedWord} 
         pickedCategory={pickedCategory}
-        letter={letter}
+        letters={letters}
         guessedLetters = {guessedLetters}
         wrongLetters={wrongLetters}
         guesses={guesses}
