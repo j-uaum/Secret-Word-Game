@@ -54,21 +54,41 @@ setPickedWord(word)
 setPickedCategory(category)
 setLetters(wordLetters)
 setGameStage(stages[1].name)
+console.log(wordLetters)
 }
 
 
   //process letter games
-  const verifyLetter = ()=>{
-    setGameStage(stages[2].name)
+  const verifyLetter = (letter)=>{
+
+
+    
+    const normalizedLetter = letter.toLowerCase()
+
+   //check if letter has been utilized
+
+   if(guessedLetters.includes(normalizedLetter)|| wrongLetters.includes(normalizedLetter)){
+    return;
+   }
+   // push guessed letter or remove a guess
+
+   if(letters.includes(normalizedLetter)){
+      setGuessedLetters((actualGuessedLetters) => [
+        ...actualGuessedLetters,
+        normalizedLetter
+      ]) 
+   }else{
+    setWrongLetters((actualWrongLetters) => [
+      ...actualWrongLetters,
+      normalizedLetter
+    ]) 
+   }
   }
   // reiniciar
   const retry = ()=>{
     setGameStage(stages[0].name)
   }
-
-  //console debugg
-  console.log(letters)
-  console.log()
+  console.log(guessedLetters)
   
   return (
     <div className="App">
