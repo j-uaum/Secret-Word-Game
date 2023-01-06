@@ -17,6 +17,7 @@ const stages =[
   {id:2, name: 'game'},
   {id:3, name: 'end'}
 ];
+const guessesQuant = 3
 
 
 // importação da variavel com as palavras do game
@@ -33,7 +34,7 @@ function App() {
 
   const [guessedLetters, setGuessedLetters] = useState([])
   const [wrongLetters, setWrongLetters] = useState([])
-  const [guesses, setGuesses] = useState(3)
+  const [guesses, setGuesses] = useState(guessesQuant)
   const [score, setScore] = useState(0)
 
 
@@ -80,10 +81,45 @@ console.log(wordLetters)
       ...actualWrongLetters,
       normalizedLetter
     ]) 
+
+      setGuesses((actualGuesses) => actualGuesses - 1)
+
+
+
    }
   }
+
+// useEffect
+
+const clearLettersStates = ()=>{
+  setGuessedLetters([])
+  setWrongLetters([])
+ 
+}
+
+useEffect(() => {
+
+
+
+if(guesses <=0) {
+  // reset all stages 
+
+  clearLettersStates()
+
+
+  //muda o estagio do game
+  setGameStage(stages[2].name)
+}
+
+
+}, [guesses])
+
+
+
   // reiniciar
   const retry = ()=>{
+    setScore(0)
+    setGuesses(guessesQuant)
     setGameStage(stages[0].name)
   }
   console.log(guessedLetters)
