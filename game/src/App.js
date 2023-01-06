@@ -61,8 +61,6 @@ console.log(wordLetters)
   //process letter games
   const verifyLetter = (letter)=>{
 
-
-    
     const normalizedLetter = letter.toLowerCase()
 
    //check if letter has been utilized
