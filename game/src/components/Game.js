@@ -21,11 +21,12 @@ const Game = ({verifyLetter, pickedWord, pickedCategory, guessedLetters, wrongLe
         <h3 className="tip">Dica sobre a palavra <span>{pickedCategory}</span></h3>
         <p>Você ainda tem {guesses} Tentavivas(s)</p>
         <div className="wordContainer">
-         
+        
           {letters.map((letter, i)=> (
             guessedLetters.includes(letter) ? (<span key={i} className='letter'>{letter}</span>):(<span key={i} className='blankSquare'></span>)
           
           ))}
+          
          
           </div>
         <div className="letterContainer">
