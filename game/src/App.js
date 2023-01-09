@@ -48,6 +48,7 @@ function App() {
 
   // start
 const startGame = ()=>{
+  clearLettersStates()
 const {word, category} = pickWordAndCategory()
 let wordLetters = word.split('')
 wordLetters = wordLetters.map((l) => l.toLowerCase())
@@ -99,22 +100,25 @@ const clearLettersStates = ()=>{
 
 useEffect(() => {
 
-
-
 if(guesses <=0) {
   // reset all stages 
-
   clearLettersStates()
-
-
   //muda o estagio do game
   setGameStage(stages[2].name)
 }
-
-
 }, [guesses])
 
+useEffect(()=>{
 
+  const uniqueLetters = [... new Set(letters)]
+
+  if(guessedLetters === uniqueLetters){
+    setScore((actualScore)=> actualScore += 100)
+    startGame()
+  }
+
+
+}, [guessedLetters, letters, startGame])
 
   // reiniciar
   const retry = ()=>{
@@ -138,7 +142,7 @@ if(guesses <=0) {
         guesses={guesses}
         score={score}
         />}
-      {gameStage === 'end' && <Over retry={retry}/>}
+      {gameStage === 'end' && <Over retry={retry} score={score}/>}
 
     </div>
   );

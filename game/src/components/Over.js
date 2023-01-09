@@ -1,11 +1,12 @@
 import React from 'react'
 import './Over.css'
-const Over = ({retry}) => {
+const Over = ({retry, score}) => {
   return (
     <div>
      
-        <h1>GameOver</h1>
-        <p>Voltar</p>
+        <h1>Fim de jogo</h1>
+        <h2>A sua pontuação foi <span>{score}</span></h2>
+        
         <button onClick={retry}>Reiniciar</button>
     </div>
   )
