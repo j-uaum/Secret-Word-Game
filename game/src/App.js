@@ -38,16 +38,16 @@ function App() {
   const [score, setScore] = useState(0)
 
 
-  const pickWordAndCategory = () => {
+  const pickWordAndCategory = useCallback(() => {
   const categories = Object.keys(words)// array com as chaves do data
   const category = categories[Math.floor(Math.random()* Object.keys(categories).length)]
   //words
   const word = words[category][Math.floor(Math.random()* words[category].length)]
   return {word, category}
-};
+},[words])
 
   // start
-const startGame = ()=>{
+const startGame = useCallback(()=>{
   clearLettersStates()
 const {word, category} = pickWordAndCategory()
 let wordLetters = word.split('')
@@ -57,7 +57,7 @@ setPickedCategory(category)
 setLetters(wordLetters)
 setGameStage(stages[1].name)
 console.log(wordLetters)
-}
+},[pickWordAndCategory])
 
 
   //process letter games
@@ -110,10 +110,12 @@ if(guesses <=0) {
 
 useEffect(()=>{
 
-  const uniqueLetters = [... new Set(letters)]
+  const uniqueLetters = [...new Set(letters)]
+  console.log(uniqueLetters)
 
-  if(guessedLetters === uniqueLetters){
+  if(guessedLetters.length === uniqueLetters.length){
     setScore((actualScore)=> actualScore += 100)
+
     startGame()
   }
 
