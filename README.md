@@ -5,3 +5,5 @@
 
 <hr></hr>
 <h2>About the game</h2>
+<p>This game was inspired by those old tv shows. It consists of the participant guessing the words letter by letter. If he hits the word, he can continue the game with a scoring system with 100 points per word correct.</p>
+<pIf the participant misses the letters of the word, he will lose his 3 chances and must return to the beginning of the game></p>
