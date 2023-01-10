@@ -14,3 +14,5 @@
 
 <h3>not yet available for web access</h3>
 <h3>To open the project you will need to download it, open it in vs code and npm start in the folder: game </h3>
+
+<img src='gamesnap.png' alt='snapgame'>
