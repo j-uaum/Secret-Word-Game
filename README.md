@@ -11,3 +11,6 @@
 <hr></hr>
 <h2>About the development</h2>
 <p>The system was made in 3 ways: "StartGame","Game","Over". It's these three stages that dictate the functioning and progress of the game. We didn't pay much attention to the style of the game, as the focus was on developing the system based on the concept. in this project, we 've been used some hooks, useState, useEffect and useCallback</p>
+
+<h3>not yet available for web access</h3>
+<h3>To open the project you will need to download it, open it in vs code and nmp start in the folder: game </h3>
