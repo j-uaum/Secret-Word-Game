@@ -111,12 +111,19 @@ if(guesses <=0) {
 useEffect(()=>{
 
   const uniqueLetters = [...new Set(letters)]
+  // o set só funciona pra itens unicos
+  // por sua vez, deixa o array com letras unicas sem repetir
   console.log(uniqueLetters)
 
   if(guessedLetters.length === uniqueLetters.length){
     setScore((actualScore)=> actualScore += 100)
 
     startGame()
+
+    // serve pra eliminar as letras das palavras que ja são
+    // repetidas para facilitar na checagem letra por letra
+    // há outras formas de fazer essa verificação
+    //porem o curso mostra essa forma
   }
 
 
